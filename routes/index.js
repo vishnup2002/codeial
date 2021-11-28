@@ -3,4 +3,4 @@ const route = express.Router()
 
 console.log('router loaded');
 
-module.exports = router;
+module.exports = route;
