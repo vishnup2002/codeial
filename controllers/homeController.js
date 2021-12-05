@@ -1,6 +1,6 @@
 const task = require('../models/tasks');
 
-
+//rendering index file with data from db
 module.exports.home = function(req,res){
     task.find({},function(err,taskList){
         if (err){
@@ -16,6 +16,7 @@ module.exports.home = function(req,res){
     })
 }
 
+//searching using description and querying the db
 module.exports.homeSearch = function(req,res){
     task.find({"desc":{$regex : req.body.query}},function(err,taskList){
         if (err){
