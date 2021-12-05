@@ -15,7 +15,7 @@ for (let i=0;i<li.length;i++){
     };
 }
 
-var button = document.getElementById('add-contact-button');
+var button = document.getElementById('add-task-button');
 button.onclick = function(){
     location.href = "/task/task-form";
 }

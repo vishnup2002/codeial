@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="/css/home.css">
 <main>
     <div id="task-list">
+        <% if (tasks.length==0){ %>
+            <p id="empty-status">Nothing to show here..</p>
+            <%}else{%>
         <% for (let i=0;i<tasks.length;i++){%>
             <li class="li">
                 <a href="/task/update-checkbox/?id=<%=tasks[i]._id%>">
@@ -26,12 +29,13 @@
                 
             </li>
         <%}%>
+        <%}%>
     </div>
     
     <%- include('_task_form')%>
 
     <div id="add-button">
-        <button type="button" id="add-contact-button"><i class="fas fa-thumbtack"></i>  Add Task</button>
+        <button type="button" id="add-task-button"><i class="fas fa-thumbtack"></i>  Add Task</button>
     </div>
 </main>
 

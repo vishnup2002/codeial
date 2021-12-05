@@ -7,14 +7,13 @@ module.exports.taskForm = function(req,res){
 
 module.exports.addTask = function(req,res){
     req.body.checked = false;
-    task.create(req.body,function(err,newContact){
+    task.create(req.body,function(err,newTask){
         
         console.log(req.body);
         if (err){
             console.log('error!!',err);
             return;
         }
-        console.log(newContact);
         res.redirect('/');
 
     }
