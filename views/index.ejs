@@ -3,18 +3,22 @@
     <div id="task-list">
         <% for (let i=0;i<tasks.length;i++){%>
             <li class="li">
+                <a href="/task/update-checkbox/?id=<%=tasks[i]._id%>">
                 <div class="checkbox">
-                    <input type="checkbox" name="checked" id="i">
+                    
+                        <input type="checkbox" name="checked" id="" <% if (tasks[i].checked){%>
+                            checked <%}else{%>
+                                unchecked<%}%>>
+                </a>
                 </div>
                 <div class="task-main">
                     <div class="content-main">
-                        <span id="name"><%= tasks[i].name %></span>
-                        <span id="no"><%= tasks[i].no%></span>
-
+                        <span id="desc"><%= tasks[i].desc %> (<%= tasks[i].category%>)</span>
+                        <span id="date">Due date : <%= tasks[i].date.toISOString().slice(0,10).replace(/-/g,"/"); %></span>
                     </div>
                     <div class="task-options" id=<%=i%>>
                         <button type="button" class="share"><i class="fas fa-share"></i>Share</button>
-                        <a href="/delete-contact/?id=<%= tasks[i]._id %>">
+                        <a href="/task/delete-task/?id=<%= tasks[i]._id %>">
                             <button type="button" class="delete"><i class="fas fa-trash"></i>Delete</button>
                         </a>
                     </div>
@@ -27,7 +31,7 @@
     <%- include('_task_form')%>
 
     <div id="add-button">
-        <button type="button" id="add-contact-button"><i class="fas fa-user-plus"></i> Add Task</button>
+        <button type="button" id="add-contact-button"><i class="fas fa-thumbtack"></i>  Add Task</button>
     </div>
 </main>
 

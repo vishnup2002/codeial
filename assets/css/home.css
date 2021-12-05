@@ -120,12 +120,12 @@ li span{
 
 }
 
-span#no{
+span#date{
     text-align: end;
     color: dimgray;
 }
 
-span#name{
+span#desc{
     text-align: start;
 }
 
