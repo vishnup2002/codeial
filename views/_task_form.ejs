@@ -1,0 +1,22 @@
+<div id="form">
+    <h1>Add a task</h1>
+    <form action="/task/add-task" method="post">
+        <div class="input-container">
+            <label for="name">Description</label>
+            <input type="text" name="desc" id="name" placeholder="Enter description" required>
+        </div>
+        <div class="input-container">
+            <label for="date">Due date</label>
+            <input type="date" name="date" id="date" required>
+        </div>
+        <div class="input-container">
+            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Category</label>
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="category" required>
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="School">School</option>
+            </select>
+        </div>
+        <button type="submit">Add contact</button>
+    </form>
+</div>

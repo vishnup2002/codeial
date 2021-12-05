@@ -1,12 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1><%=heading%></h1>
-</body>
-</html>
+<link rel="stylesheet" href="/css/home.css">
+<main>
+    <div id="task-list">
+        <% for (let i=0;i<tasks.length;i++){%>
+            <li class="li">
+                <div class="checkbox">
+                    <input type="checkbox" name="checked" id="i">
+                </div>
+                <div class="task-main">
+                    <div class="content-main">
+                        <span id="name"><%= tasks[i].name %></span>
+                        <span id="no"><%= tasks[i].no%></span>
+
+                    </div>
+                    <div class="task-options" id=<%=i%>>
+                        <button type="button" class="share"><i class="fas fa-share"></i>Share</button>
+                        <a href="/delete-contact/?id=<%= tasks[i]._id %>">
+                            <button type="button" class="delete"><i class="fas fa-trash"></i>Delete</button>
+                        </a>
+                    </div>
+                </div>
+                
+            </li>
+        <%}%>
+    </div>
+    
+    <%- include('_task_form')%>
+
+    <div id="add-button">
+        <button type="button" id="add-contact-button"><i class="fas fa-user-plus"></i> Add Task</button>
+    </div>
+</main>
+
+<script type = "text/javascript" src="/js/home.js"></script>
