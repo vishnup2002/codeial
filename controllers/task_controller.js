@@ -1,9 +1,14 @@
-const task = require('../models/tasks');
+const Models = require('../models/models');
+
+const task = Models.task;
+const user = Models.user;
 
 //rendering the form to add task
 module.exports.taskForm = function(req,res){
     res.render('add_task');
 }
+
+
 
 //adding the data to db and redirecting to home page
 module.exports.addTask = function(req,res){
