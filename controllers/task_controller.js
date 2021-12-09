@@ -1,26 +1,27 @@
 const task = require('../models/tasks');
 
-
+//rendering the form to add task
 module.exports.taskForm = function(req,res){
     res.render('add_task');
 }
 
+//adding the data to db and redirecting to home page
 module.exports.addTask = function(req,res){
     req.body.checked = false;
-    task.create(req.body,function(err,newContact){
+    task.create(req.body,function(err,newTask){
         
         console.log(req.body);
         if (err){
             console.log('error!!',err);
             return;
         }
-        console.log(newContact);
         res.redirect('/');
 
     }
     )
 };
 
+//deleting a task
 module.exports.deleteTask = function(req,res){
     var id = req.query.id;
     task.findByIdAndDelete(id,function(err){
@@ -32,6 +33,7 @@ module.exports.deleteTask = function(req,res){
     })
 };
 
+//updating the checkbox and saving in db
 module.exports.updateCheckbox = function(req,res){
     var id = req.query.id;
     task.findOne({ _id: id }, function(err, reqtask) {

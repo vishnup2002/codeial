@@ -1,3 +1,4 @@
+//expanding and shrinking tasks on click
 var li = document.getElementsByClassName('task-main');
 for (let i=0;i<li.length;i++){
     li[i].onclick = function(){
@@ -15,7 +16,8 @@ for (let i=0;i<li.length;i++){
     };
 }
 
-var button = document.getElementById('add-contact-button');
+//take to form page on clicking the button
+var button = document.getElementById('add-task-button');
 button.onclick = function(){
     location.href = "/task/task-form";
 }
