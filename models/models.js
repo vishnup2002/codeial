@@ -32,9 +32,10 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:true
     }
-},{
-    timestamps:true
-});
+    },{
+        timestamps:true
+    }
+);
 
 const Task = mongoose.model('tasks',taskSchema);
 const User = mongoose.model('user',UserSchema);

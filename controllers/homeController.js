@@ -1,19 +1,32 @@
-const Task = require('../models/models');
-const task = Task.task;
+const Models = require('../models/models');
+const user = Models.user;
+const task = Models.task;
 //rendering index file with data from db
 module.exports.home = function(req,res){
-    task.find({},function(err,taskList){
+    user.findById(req.cookies.user_id,function(err,User){
         if (err){
-            console.log('err');
-            return;
-        }
-        console.log(req.cookies);
-        res.cookie('user_id',100);
-        return res.render('index',{
-            tasks: taskList
+            console.log(err);return;
         }
 
-        )
+        if (!User){
+            return res.redirect('/user/sign-in')
+        }
+        else{
+            task.find({},function(err,taskList){
+                if (err){
+                    console.log('err');
+                    return;
+                }
+                
+                return res.render('index',{
+                    tasks: taskList
+                })
+            })
+        
+        }   
+
+
+    
     })
 }
 
