@@ -20,7 +20,6 @@
                         <span id="date">Due date : <%= tasks[i].date.toISOString().slice(0,10).replace(/-/g,"/"); %></span>
                     </div>
                     <div class="task-options" id=<%=i%>>
-                        <button type="button" class="share"><i class="fas fa-share"></i>Share</button>
                         <a href="/task/delete-task/?id=<%= tasks[i]._id %>">
                             <button type="button" class="delete"><i class="fas fa-trash"></i>Delete</button>
                         </a>
@@ -31,6 +30,8 @@
         <%}%>
         <%}%>
     </div>
+
+    
     
     <%- include('_task_form')%>
 

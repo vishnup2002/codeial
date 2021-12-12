@@ -13,10 +13,26 @@
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
         </ul>
-        <form class="d-flex" action="/" method="post">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+
+        
+        
+        <% if (locals.user){%>
+          <form class="d-flex" action="/" method="post">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <span class="ms-5 mt-3">Hi <%=locals.user.name%></span>
+          <a href="/user/sign-out">
+            <button id="sign-out" type="button" class="btn btn-outline-primary btn-space-left ms-5 mt-3">Sign Out</button>
+          </a>
+        <%}else{%>
+          <a href="/user/sign-up" >
+            <button id="sign-up" type="button" class="btn btn-outline-primary">Sign Up</button>
+          </a>
+          <a href="/user/sign-in" >
+            <button id="sign-in" type="button" class="btn btn-outline-primary">Sign In</button>
+          </a>
+        <%}%>
       </div>
     </div>
   </nav>

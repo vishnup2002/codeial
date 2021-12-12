@@ -1,7 +1,5 @@
 const Models = require('../models/models');
-
 const task = Models.task;
-const user = Models.user;
 
 //rendering the form to add task
 module.exports.taskForm = function(req,res){

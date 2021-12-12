@@ -7,8 +7,6 @@ module.exports.home = function(req,res){
             console.log('err');
             return;
         }
-        console.log(req.cookies);
-        res.cookie('user_id',100);
         return res.render('index',{
             tasks: taskList
         }
@@ -32,4 +30,6 @@ module.exports.homeSearch = function(req,res){
         )
     })
 }
+
+
 

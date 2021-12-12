@@ -1,6 +1,6 @@
 main{
     display: flex;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .li:last-child{
@@ -132,6 +132,7 @@ span#desc{
     font-size: 1rem;
     border-radius: 20px;
 }
+
 
 #form input{
     border:none;

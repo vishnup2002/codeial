@@ -2,11 +2,17 @@ const Models = require('../models/models');
 const user = Models.user;
 
 module.exports.signIn = function(req,res){
-    return res.render('user_sign_in');
+    if (!req.isAuthenticated()){
+        return res.render('user_sign_in');
+    }
+    return res.redirect('/');
 }
 
 module.exports.signUp = function(req,res){
-    return res.render('user_sign_up');
+    if (!req.isAuthenticated()){
+        return res.render('user_sign_up');
+    }
+    return res.redirect('/');
 }
 
 //creating user
@@ -34,4 +40,13 @@ module.exports.createUser = function(req,res){
 
     })
 
+}
+
+module.exports.createSession = function(req,res){
+    return res.redirect('/');
+}
+
+module.exports.destroySession = function(req,res){
+    req.logout();
+    return res.redirect('/user/sign-in');
 }
