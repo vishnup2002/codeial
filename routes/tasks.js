@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-router.use(express.urlencoded());
+//router.use(express.urlencoded({extended:true}));
 const taskController = require('../controllers/task_controller');
 
 router.get('/task-form',taskController.taskForm);

@@ -13,7 +13,7 @@ const MongoStore = require('connect-mongo');
 //for accessing static files
 app.use(express.static('./assets'));
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended:true}));
 
 //parsing cookies
 app.use(cookieParser());

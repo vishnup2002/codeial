@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 
-router.use(express.urlencoded());
+//router.use(express.urlencoded({extended:true}));
 const userController = require('../controllers/user_controller');
 
 router.post('/create-user',userController.createUser);

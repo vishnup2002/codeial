@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-router.use(express.urlencoded());
+//router.use(express.urlencoded({extended:true}));
 const homeController = require('../controllers/homeController');
 
 router.get('/',passport.checkAuthentication,homeController.home);
