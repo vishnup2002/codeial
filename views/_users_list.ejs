@@ -1,0 +1,9 @@
+<section>
+    <ul>
+        <% for (u of users_list){%>
+            <li>
+                <a href="/user/home/profile/<%=u.id%>"><%= u.name%></a>
+            </li>    
+        <%}%>
+    </ul>
+</section>

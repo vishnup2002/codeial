@@ -1,4 +1,5 @@
 const Post = require('../models/post');
+const Comment = require('../models/comment');
 
 module.exports.create = function(req,res){
     Post.create({
@@ -10,4 +11,22 @@ module.exports.create = function(req,res){
     }
     )
 };
+
+module.exports.destroy = async function(req,res){
+    try{
+        let post = await Post.findById(req.params.id);
+        if (post && (req.user.id == post.user)){
+            post.delete();
+            await Comment.deleteMany({post:req.params.id})
+        
+        }
+        return res.redirect('back');
+
+    }catch(err){
+        console.log(err);
+        return;
+    }
+    
+    
+}
 

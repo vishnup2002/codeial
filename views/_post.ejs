@@ -1,0 +1,22 @@
+<li>
+    <p>
+        <%= post.content %>
+        <br>
+        <%= post.user.name%>
+        <br>
+        <% if (locals.user && (locals.user.id == post.user.id)){%>
+            <a href="/user/home/post/destroy/<%= post.id%>">
+                X
+            </a>
+            
+        <%}%>
+            <ul>
+                <%for (comment of post.comments){%>
+                    <%- include('_comment') -%>
+                <%}%>
+            </ul>
+            <% if (locals.user){ %>
+                <%- include('_commentForm') -%>
+            <%}%>
+    </p>
+</li>

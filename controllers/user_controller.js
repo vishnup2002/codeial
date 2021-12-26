@@ -43,10 +43,25 @@ module.exports.createUser = function(req,res){
 }
 
 module.exports.createSession = function(req,res){
+    req.flash('success','Logged in Successfully');
     return res.redirect('/');
 }
 
 module.exports.destroySession = function(req,res){
     req.logout();
+    req.flash('success','You have logged out');
     return res.redirect('/user/sign-in');
+}
+
+module.exports.updateUser = function(req,res){
+    if (req.user.id == req.params.id){
+    user.findByIdAndUpdate(req.user.id,req.body,function(err,user){
+        return res.redirect('back');
+    })
+    
+    }
+    else{
+        return res.status(401).send('Unauthorised');
+    }
+
 }

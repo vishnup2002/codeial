@@ -8,6 +8,7 @@ const userController = require('../controllers/user_controller');
 router.post('/create-user',userController.createUser);
 router.get('/sign-in',userController.signIn);
 router.get('/sign-up',userController.signUp);
+router.post('/update/:id',passport.checkAuthentication,userController.updateUser);
 router.use('/home',require('./social'));
 
 //use passport as a middleware to authenticate

@@ -1,0 +1,5 @@
+<form action="/comment/create-comment" method="post">
+    <input type="text" name="content" id="" placeholder="Enter comment here.." required>
+    <input type="hidden" name="postid" value="<%= post._id%>">
+    <input type="submit" value="Submit">
+</form>

@@ -8,5 +8,5 @@ router.get('/',passport.checkAuthentication,homeController.home);
 router.post('/',homeController.homeSearch);
 router.use('/task',passport.checkAuthentication,require('./tasks'));
 router.use('/user',require('./user'));
-
+router.use('/comment',require('./comment'))
 module.exports = router;
