@@ -1,22 +1,24 @@
-<li>
+<li id="post-<%=post.id%>">
     <p>
         <%= post.content %>
         <br>
         <%= post.user.name%>
         <br>
         <% if (locals.user && (locals.user.id == post.user.id)){%>
-            <a href="/user/home/post/destroy/<%= post.id%>">
+            <a href="/user/home/post/destroy/<%= post.id%>" class="delete-post-button">
                 X
             </a>
             
         <%}%>
-            <ul>
+            
+            <% if (locals.user){ %>
+                <%- include('_commentForm') -%>
+            <%}%>
+            <ul id="comment-list-<%= post._id %>">
                 <%for (comment of post.comments){%>
                     <%- include('_comment') -%>
                 <%}%>
             </ul>
-            <% if (locals.user){ %>
-                <%- include('_commentForm') -%>
-            <%}%>
+            
     </p>
 </li>

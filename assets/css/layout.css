@@ -2,3 +2,35 @@ body{
     /* text-align: center; */
     margin:0;
 }
+
+#comment-list li{
+    width:400px;
+    overflow: hidden;
+    transform-origin: 50% 0;
+	animation: append-animate .3s linear;
+    padding:30px;
+    border: 0.5px solid grey;
+    margin:20px 10px;
+    border-radius: 10px;
+}
+
+#post-container ul li{
+    padding:30px;
+    border: 0.5px solid grey;
+    margin:20px;
+    border-radius: 20px;
+    animation: append-animate .3s linear;
+}
+
+
+
+@keyframes append-animate {
+	from {
+		transform: translateX(-10%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;	
+	}
+}

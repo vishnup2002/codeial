@@ -20,6 +20,7 @@
     "gyp": "^0.5.0",
     "har-validator": "^5.1.5",
     "mongoose": "^6.0.14",
+    "multer": "^1.4.4",
     "node": "^17.2.0",
     "node-gyp": "^8.4.1",
     "node-sass": "^6.0.0",
