@@ -221,6 +221,29 @@
         })
     }
 
+    let likeToggle = function(likeButton){
+        console.log(document.getElementById(likeButton[0].id).getElementsByTagName("span")[0]);
+        likeButton.click(function(e){
+            e.preventDefault();
+
+            $.ajax({
+                type:'get',
+                url:$(likeButton).prop('href'),
+                success: function(data){
+                    if (data.data.deleted){
+                        document.getElementById(likeButton[0].id).querySelector("span").textContent = parseInt(document.getElementById(likeButton[0].id).querySelector("span").textContent)-1;
+                    }else{
+                        document.getElementById(likeButton[0].id).querySelector("span").textContent = parseInt(document.getElementById(likeButton[0].id).querySelector("span").textContent)+1;
+                    }
+                    
+                },
+                error:function(error){
+                    console.log(error.responseText);
+                    return;}
+            })
+        })
+    }
+
     $.getJSON("/api/user_data", function(data) {
         user = data;   
     });
@@ -232,6 +255,10 @@
     $('.delete-comment-button').each(function(){
         deleteComment($(this));
     });
+
+    $('.like-button').each(function(){
+        likeToggle($(this));
+    })
 
     createPost();
     createComment();

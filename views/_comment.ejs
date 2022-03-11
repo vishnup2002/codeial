@@ -6,5 +6,10 @@
             X
         </a>
         <%}%>
+        <%if (locals.user){%>
+        <a href="/likes/toggle/?id=<%= comment.id %>&type=Comment" class="like-button" id="like-button-<%=comment.id%>" ><span id="like-count"><%= comment.likes.length%></span>Like</a>
+        <%}else{%>
+            <span id="like-count"><%= comment.likes.length%></span>
+            <%}%>
     </p>
 </li>

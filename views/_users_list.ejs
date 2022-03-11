@@ -1,9 +1,15 @@
 <section>
     <ul>
-        <% for (u of users_list){%>
-            <li>
-                <a href="/user/home/profile/<%=u.id%>"><%= u.name%></a>
-            </li>    
+        <%if (locals.user){%>
+            <% for (u of users_list){%>
+                <%if (user.id!=u.id){%>
+                    <li>
+
+                        <img src="<%=u.avatar%>" alt="" width = "50px">
+                        <a href="/user/home/profile/<%=u.id%>"><%= u.name%></a>
+                    </li>
+                <%}%>    
+            <%}%>
         <%}%>
     </ul>
 </section>

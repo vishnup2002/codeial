@@ -21,7 +21,7 @@
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
-          <span class="ms-5 mt-3">Hi <%=locals.user.name%></span>
+          <span class="ms-5 mt-3">Hi <a href="/user/home/profile/<%=user.id%>"><%=locals.user.name%><img src="<%=user.avatar%>" width="50px"></a></span>
           <a href="/user/sign-out">
             <button id="sign-out" type="button" class="btn btn-outline-primary btn-space-left ms-5 mt-3">Sign Out</button>
           </a>

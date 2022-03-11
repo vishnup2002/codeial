@@ -10,7 +10,13 @@
             </a>
             
         <%}%>
-            
+        <span></span>
+        <%if (locals.user){%>
+        <a href="/likes/toggle/?id=<%= post.id %>&type=Post" class="like-button" id="like-button-<%=post.id%>"><span><%=post.likes.length%></span>Like</a>
+        <%}else{%>
+
+                <span id="like-count"><%= comment.likes.length%></span>
+            <%}%>
             <% if (locals.user){ %>
                 <%- include('_commentForm') -%>
             <%}%>

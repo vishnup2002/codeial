@@ -9,6 +9,8 @@ router.post('/',homeController.homeSearch);
 router.use('/task',passport.checkAuthentication,require('./tasks'));
 router.use('/user',require('./user'));
 router.use('/comment',require('./comment'));
+router.use('/api',require('./api'));
+router.use('/likes',require('./likes'));
 router.get('/api/user_data', function(req, res) {
 
     if (req.user === undefined) {
